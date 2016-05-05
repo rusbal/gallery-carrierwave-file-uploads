@@ -55,6 +55,6 @@ class PaintingsController < ApplicationController
 
   def painting_params
     var = params[:painting]
-    var ? var.permit(:name, :image) : {}
+    var ? var.permit(:name, :image, :remote_image_url) : {}
   end
 end

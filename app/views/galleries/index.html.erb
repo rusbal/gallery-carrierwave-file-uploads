@@ -12,10 +12,14 @@
           <%= image_tag default_image(gallery) %>
         <% end %>
       <% end %>
-      <strong><%= gallery.name %>:</strong> <%= pluralize(gallery.paintings.count, "Painting") %><br>
-      <div class="btn-group pull-right">
-        <%= link_to "edit", edit_gallery_path(gallery), class: "btn btn-sm btn-default" %>
-        <%= link_to "remove", gallery_path(gallery), method: :delete, data: { confirm: "Associated paintings will be deleted as well.\n\nAre you sure?" }, class: "btn btn-sm btn-default" %>
+      <div class="text-center">
+        <p>
+          <strong><%= gallery.name %>:</strong> <%= pluralize(gallery.paintings.count, "Painting") %><br>
+        </p>
+        <div class="btn-group">
+          <%= link_to "edit", edit_gallery_path(gallery), class: "btn btn-sm btn-default" %>
+          <%= link_to "remove", gallery_path(gallery), method: :delete, data: { confirm: "Associated paintings will be deleted as well.\n\nAre you sure?" }, class: "btn btn-sm btn-default" %>
+        </div>
       </div>
   </div>
 
