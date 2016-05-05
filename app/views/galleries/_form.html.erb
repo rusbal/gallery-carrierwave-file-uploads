@@ -1,0 +1,12 @@
+
+<%= render 'layouts/errors', obj: @gallery %>
+
+<%= form_for @gallery do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :autofocus => true %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

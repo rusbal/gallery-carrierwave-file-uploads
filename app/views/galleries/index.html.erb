@@ -12,7 +12,9 @@
           <%= image_tag default_image(gallery) %>
         <% end %>
       <% end %>
-      <%= gallery.name %>: <%= gallery.paintings.count %>
+      <%= gallery.name %>: <%= gallery.paintings.count %> |
+      <%= link_to "edit", edit_gallery_path(gallery) %> |
+      <%= link_to "remove", gallery_path(gallery), method: :delete, data: { confirm: "Associated paintings will be deleted as well.\n\nAre you sure?" } %>
   </div>
 
 <% end %>

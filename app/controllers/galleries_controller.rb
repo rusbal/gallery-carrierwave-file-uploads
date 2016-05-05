@@ -1,13 +1,12 @@
 class GalleriesController < ApplicationController
-  before_action :build_gallery, only: [:create]
-  before_action :set_gallery, only: [:show, :destroy, :set_default]
+  before_action :set_gallery, only: [:show, :edit, :update, :destroy, :set_default]
+  before_action :build_gallery, only: [:new, :create, :update]
 
   def index
     @galleries = Gallery.all
   end
 
   def new
-    @gallery = Gallery.new
   end
 
   def create
@@ -22,7 +21,21 @@ class GalleriesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @gallery.save
+      flash[:success] = "Gallery was successfully updated."
+      redirect_to @gallery
+    else
+      render 'new'
+    end
+  end
+
   def destroy
+    @gallery.destroy
+    redirect_to root_path, :notice => "#{@gallery.name} was deleted."
   end
 
   def set_default
@@ -34,17 +47,17 @@ class GalleriesController < ApplicationController
 
   private
 
+  def set_gallery
+    @gallery = Gallery.find(params[:id])
+  end
+
   def build_gallery
-    @gallery = Gallery.new
+    @gallery ||= Gallery.new
     @gallery.attributes = gallery_params
   end
 
   def gallery_params
     var = params[:gallery]
     var ? var.permit(:name) : {}
-  end
-
-  def set_gallery
-    @gallery = Gallery.find(params[:id])
   end
 end
