@@ -1,14 +1,3 @@
 <h1>Add to Gallery: <%= @gallery.name %></h1>
 
-<%= render 'layouts/errors', obj: @painting %>
-
-<%= form_for [@gallery, @painting] do |f| %>
-
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render 'form' %>

@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505064019) do
+ActiveRecord::Schema.define(version: 20160505090805) do
 
   create_table "galleries", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "default_painting"
   end
 
   create_table "paintings", force: :cascade do |t|
@@ -24,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160505064019) do
     t.integer  "gallery_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "image"
   end
 
   add_index "paintings", ["gallery_id"], name: "index_paintings_on_gallery_id"

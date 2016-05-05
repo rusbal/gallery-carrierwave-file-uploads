@@ -51,7 +51,7 @@
 
         <div class="row">
           <% flash.each do |key, msg| %>
-            <div class="alert alert-<%= key %>" role="alert"><%= msg %></div>
+            <div class="alert alert-<%= key == "notice" ? "success" : key %>" role="alert"><%= msg %></div>
           <% end %>
         </div>
 

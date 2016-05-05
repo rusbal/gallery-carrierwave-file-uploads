@@ -6,8 +6,12 @@
 <% @gallery.paintings.each do |painting| %>
 
   <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-    <%= painting.name %>
+    <div class="thumbnail <%= "default_painting" if @gallery.default_painting == painting.id %>">
+      <%= link_to (image_tag painting.image_url.to_s), default_painting_on_gallery_path(@gallery, painting_id: painting), method: :put %>
+    </div>
+    <%= painting.name %> |
+    <%= link_to "edit", edit_gallery_painting_path(@gallery, painting) %> |
+    <%= link_to "remove", gallery_painting_path(@gallery, painting), data: { confirm: "Are you sure?" }, method: :delete %>
   </div>
 
 <% end %>

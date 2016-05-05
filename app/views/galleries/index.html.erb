@@ -9,10 +9,10 @@
         <% if gallery.paintings.count == 0 %>
           <img class="img-responsive" src="http://placehold.it/400x300" alt="">
         <% else %>
-          <%= gallery.paintings.first %>
+          <%= image_tag default_image(gallery) %>
         <% end %>
       <% end %>
-      Paintings: <%= gallery.paintings.count %>
+      <%= gallery.name %>: <%= gallery.paintings.count %>
   </div>
 
 <% end %>

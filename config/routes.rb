@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'paintings/new'
-
-  get 'paintings/create'
-
   root 'galleries#index'
 
   resources :galleries do
+    member do
+      put 'set_default', as: 'default_painting_on'
+    end
     resources :paintings
   end
 
