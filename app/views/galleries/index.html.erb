@@ -1,0 +1,18 @@
+<div class="col-lg-12">
+    <h1 class="page-header">Thumbnail Gallery</h1>
+</div>
+
+<% @galleries.each do |gallery| %>
+
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+      <%= link_to gallery_path(gallery), class: "thumbnail" do %>
+        <% if gallery.paintings.count == 0 %>
+          <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+        <% else %>
+          <%= gallery.paintings.first %>
+        <% end %>
+      <% end %>
+      Paintings: <%= gallery.paintings.count %>
+  </div>
+
+<% end %>

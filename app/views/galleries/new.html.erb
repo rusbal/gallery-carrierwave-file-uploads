@@ -1,0 +1,13 @@
+<h1>New Gallery</h1>
+
+<%= render 'layouts/errors', obj: @gallery %>
+
+<%= form_for @gallery do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
