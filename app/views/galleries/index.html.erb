@@ -7,14 +7,16 @@
   <div class="col-lg-3 col-md-4 col-xs-6 thumb">
       <%= link_to gallery_path(gallery), class: "thumbnail" do %>
         <% if gallery.paintings.count == 0 %>
-          <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+          <img class="img-responsive" src="http://placehold.it/600x600" alt="">
         <% else %>
           <%= image_tag default_image(gallery) %>
         <% end %>
       <% end %>
-      <%= gallery.name %>: <%= gallery.paintings.count %> |
-      <%= link_to "edit", edit_gallery_path(gallery) %> |
-      <%= link_to "remove", gallery_path(gallery), method: :delete, data: { confirm: "Associated paintings will be deleted as well.\n\nAre you sure?" } %>
+      <strong><%= gallery.name %>:</strong> <%= pluralize(gallery.paintings.count, "Painting") %><br>
+      <div class="btn-group pull-right">
+        <%= link_to "edit", edit_gallery_path(gallery), class: "btn btn-sm btn-default" %>
+        <%= link_to "remove", gallery_path(gallery), method: :delete, data: { confirm: "Associated paintings will be deleted as well.\n\nAre you sure?" }, class: "btn btn-sm btn-default" %>
+      </div>
   </div>
 
 <% end %>
