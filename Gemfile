@@ -20,5 +20,6 @@ group :development do
   gem 'spring'
 end
 
+gem 'rmagick'
 gem 'carrierwave'
 

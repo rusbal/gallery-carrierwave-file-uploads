@@ -7,7 +7,7 @@
 
   <div class="col-lg-3 col-md-4 col-xs-6 thumb">
     <div class="thumbnail <%= "default_painting" if @gallery.default_painting == painting.id %>">
-      <%= link_to (image_tag painting.image_url.to_s), default_painting_on_gallery_path(@gallery, painting_id: painting), method: :put %>
+      <%= link_to (image_tag painting.image_url(:thumb).to_s), default_painting_on_gallery_path(@gallery, painting_id: painting), method: :put %>
     </div>
     <%= painting.name %> |
     <%= link_to "edit", edit_gallery_painting_path(@gallery, painting) %> |
